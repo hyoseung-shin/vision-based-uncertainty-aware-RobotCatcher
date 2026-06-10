@@ -1,0 +1,222 @@
+{
+  "stamp": "20260531_175713",
+  "args": {
+    "exp": "F",
+    "full": true,
+    "out_dir": "data/experiments",
+    "ckpt": "data/lstm_predictor.pt"
+  },
+  "results": {
+    "F": {
+      "counts": {
+        "caught": 14,
+        "near_miss": 5,
+        "ee_diverged": 1
+      },
+      "n_runs": 20,
+      "rows": [
+        {
+          "vx": 0.0,
+          "vy": -2.0,
+          "vz": 0.5,
+          "caught": true,
+          "min_dist_cm": 8.995970162997548,
+          "min_dist_t": 0.5160000000000003,
+          "t_first_intercept": 0.09600000000000007,
+          "mode": "caught"
+        },
+        {
+          "vx": 0.0,
+          "vy": -2.0,
+          "vz": 1.0,
+          "caught": true,
+          "min_dist_cm": 9.261593968190981,
+          "min_dist_t": 0.5320000000000004,
+          "t_first_intercept": 0.09600000000000007,
+          "mode": "caught"
+        },
+        {
+          "vx": 0.0,
+          "vy": -2.0,
+          "vz": 1.5,
+          "caught": true,
+          "min_dist_cm": 9.34224744010687,
+          "min_dist_t": 0.5980000000000004,
+          "t_first_intercept": 0.09600000000000007,
+          "mode": "caught"
+        },
+        {
+          "vx": 0.0,
+          "vy": -2.0,
+          "vz": 2.0,
+          "caught": false,
+          "min_dist_cm": 15.759199011369823,
+          "min_dist_t": 0.8580000000000007,
+          "t_first_intercept": 0.12800000000000009,
+          "mode": "near_miss"
+        },
+        {
+          "vx": 0.0,
+          "vy": -2.3,
+          "vz": 0.5,
+          "caught": true,
+          "min_dist_cm": 8.109597410646494,
+          "min_dist_t": 0.4920000000000004,
+          "t_first_intercept": 0.09600000000000007,
+          "mode": "caught"
+        },
+        {
+          "vx": 0.0,
+          "vy": -2.3,
+          "vz": 1.0,
+          "caught": false,
+          "min_dist_cm": 32.313652468290805,
+          "min_dist_t": 0.6020000000000004,
+          "t_first_intercept": 0.09600000000000007,
+          "mode": "ee_diverged"
+        },
+        {
+          "vx": 0.0,
+          "vy": -2.3,
+          "vz": 1.5,
+          "caught": false,
+          "min_dist_cm": 13.636979696935652,
+          "min_dist_t": 0.8060000000000006,
+          "t_first_intercept": 0.12800000000000009,
+          "mode": "near_miss"
+        },
+        {
+          "vx": 0.0,
+          "vy": -2.3,
+          "vz": 2.0,
+          "caught": true,
+          "min_dist_cm": 5.651902651628153,
+          "min_dist_t": 0.7640000000000006,
+          "t_first_intercept": 0.12800000000000009,
+          "mode": "caught"
+        },
+        {
+          "vx": 0.0,
+          "vy": -2.5,
+          "vz": 0.5,
+          "caught": true,
+          "min_dist_cm": 6.23437877534695,
+          "min_dist_t": 0.47600000000000037,
+          "t_first_intercept": 0.09600000000000007,
+          "mode": "caught"
+        },
+        {
+          "vx": 0.0,
+          "vy": -2.5,
+          "vz": 1.0,
+          "caught": false,
+          "min_dist_cm": 13.239335333676575,
+          "min_dist_t": 0.6980000000000005,
+          "t_first_intercept": 0.09600000000000007,
+          "mode": "near_miss"
+        },
+        {
+          "vx": 0.0,
+          "vy": -2.5,
+          "vz": 1.5,
+          "caught": true,
+          "min_dist_cm": 7.372945988585672,
+          "min_dist_t": 0.6940000000000005,
+          "t_first_intercept": 0.09600000000000007,
+          "mode": "caught"
+        },
+        {
+          "vx": 0.0,
+          "vy": -2.5,
+          "vz": 2.0,
+          "caught": false,
+          "min_dist_cm": 10.208666422003022,
+          "min_dist_t": 0.7040000000000005,
+          "t_first_intercept": 0.11200000000000009,
+          "mode": "near_miss"
+        },
+        {
+          "vx": 0.0,
+          "vy": -2.7,
+          "vz": 0.5,
+          "caught": false,
+          "min_dist_cm": 16.20229465937191,
+          "min_dist_t": 0.8040000000000006,
+          "t_first_intercept": 0.11200000000000009,
+          "mode": "near_miss"
+        },
+        {
+          "vx": 0.0,
+          "vy": -2.7,
+          "vz": 1.0,
+          "caught": true,
+          "min_dist_cm": 9.753063407346598,
+          "min_dist_t": 0.6060000000000004,
+          "t_first_intercept": 0.09600000000000007,
+          "mode": "caught"
+        },
+        {
+          "vx": 0.0,
+          "vy": -2.7,
+          "vz": 1.5,
+          "caught": true,
+          "min_dist_cm": 9.247120105605447,
+          "min_dist_t": 0.6300000000000004,
+          "t_first_intercept": 0.09600000000000007,
+          "mode": "caught"
+        },
+        {
+          "vx": 0.0,
+          "vy": -2.7,
+          "vz": 2.0,
+          "caught": true,
+          "min_dist_cm": 5.743049745051516,
+          "min_dist_t": 0.6940000000000005,
+          "t_first_intercept": 0.17600000000000013,
+          "mode": "caught"
+        },
+        {
+          "vx": 0.0,
+          "vy": -3.0,
+          "vz": 0.5,
+          "caught": true,
+          "min_dist_cm": 6.745753364432608,
+          "min_dist_t": 0.5780000000000004,
+          "t_first_intercept": 0.09600000000000007,
+          "mode": "caught"
+        },
+        {
+          "vx": 0.0,
+          "vy": -3.0,
+          "vz": 1.0,
+          "caught": true,
+          "min_dist_cm": 5.911493436205115,
+          "min_dist_t": 0.5820000000000004,
+          "t_first_intercept": 0.09600000000000007,
+          "mode": "caught"
+        },
+        {
+          "vx": 0.0,
+          "vy": -3.0,
+          "vz": 1.5,
+          "caught": true,
+          "min_dist_cm": 7.140579508122026,
+          "min_dist_t": 0.6320000000000005,
+          "t_first_intercept": 0.09600000000000007,
+          "mode": "caught"
+        },
+        {
+          "vx": 0.0,
+          "vy": -3.0,
+          "vz": 2.0,
+          "caught": true,
+          "min_dist_cm": 6.038749690200428,
+          "min_dist_t": 0.7040000000000005,
+          "t_first_intercept": 0.09600000000000007,
+          "mode": "caught"
+        }
+      ]
+    }
+  },
+  "total_wall_time_s": 6.844213500036858
+}

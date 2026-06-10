@@ -1,0 +1,14 @@
+
+============================================================
+  catch_robot — all-in-one pipeline
+============================================================
+
+============================================================
+  0. Sanity checks
+============================================================
+[step] Module unit tests (test_modules.py)
+
+----- Module unit tests (test_modules.py) -----
++ /C/Users/hyoseung/AppData/Local/Programs/Python/Python311/python.exe scripts/test_modules.py
+run_all.sh: line 112: /C/Users/hyoseung/AppData/Local/Programs/Python/Python311/python.exe: No such file or directory
+  fail: Module unit tests (test_modules.py)  — see results/20260601_093122/run_all.log

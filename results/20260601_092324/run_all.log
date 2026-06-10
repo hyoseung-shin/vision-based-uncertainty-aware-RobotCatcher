@@ -1,0 +1,14 @@
+
+============================================================
+  catch_robot — all-in-one pipeline
+============================================================
+
+============================================================
+  0. Sanity checks
+============================================================
+[step] Module unit tests (test_modules.py)
+
+----- Module unit tests (test_modules.py) -----
++ python scripts/test_modules.py
+run_all.sh: line 111: python: command not found
+  fail: Module unit tests (test_modules.py)  — see results/20260601_092324/run_all.log

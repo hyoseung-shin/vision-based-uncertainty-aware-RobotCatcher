@@ -1,0 +1,70 @@
+{
+  "stamp": "20260531_175510",
+  "args": {
+    "exp": "E",
+    "full": false,
+    "out_dir": "data/experiments",
+    "ckpt": "data/lstm_predictor.pt"
+  },
+  "results": {
+    "E": {
+      "n_runs": 3,
+      "n_caught": 3,
+      "catch_rate": 1.0,
+      "rows": [
+        {
+          "vx": 0.0,
+          "vy": -2.0,
+          "vz": 1.5,
+          "predictor": "analytical",
+          "use_gt": false,
+          "vision_noise_m": 0.01,
+          "caught": 1,
+          "min_dist_m": 0.08887820589648494,
+          "min_dist_t": 0.6000000000000004,
+          "t_first_detection": 0.0,
+          "t_first_intercept": 0.09600000000000007,
+          "n_detections": 57,
+          "n_vision_frames": 75,
+          "wall_time_s": 0.9191509999800473,
+          "final_ball_z": 0.03483466015844779
+        },
+        {
+          "vx": 0.0,
+          "vy": -2.5,
+          "vz": 1.5,
+          "predictor": "analytical",
+          "use_gt": false,
+          "vision_noise_m": 0.01,
+          "caught": 1,
+          "min_dist_m": 0.07831796344362019,
+          "min_dist_t": 0.6720000000000005,
+          "t_first_detection": 0.0,
+          "t_first_intercept": 0.09600000000000007,
+          "n_detections": 58,
+          "n_vision_frames": 75,
+          "wall_time_s": 0.9483191000763327,
+          "final_ball_z": 0.35818002920089603
+        },
+        {
+          "vx": 0.0,
+          "vy": -3.0,
+          "vz": 1.5,
+          "predictor": "analytical",
+          "use_gt": false,
+          "vision_noise_m": 0.01,
+          "caught": 1,
+          "min_dist_m": 0.07932365916265595,
+          "min_dist_t": 0.6300000000000004,
+          "t_first_detection": 0.0,
+          "t_first_intercept": 0.12800000000000009,
+          "n_detections": 54,
+          "n_vision_frames": 75,
+          "wall_time_s": 0.9461626000702381,
+          "final_ball_z": 0.03483485934961386
+        }
+      ]
+    }
+  },
+  "total_wall_time_s": 4.020410900004208
+}
