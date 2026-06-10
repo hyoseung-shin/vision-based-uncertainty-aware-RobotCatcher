@@ -1,3 +1,84 @@
+
+<div align="center">
+
+# 🎯 catch_robot
+
+### 비전 기반 동적 객체 캐치 로봇
+
+**Stereo Vision · State Estimation · Trajectory Prediction · Robot Manipulation**
+
+<p>
+<img src="https://img.shields.io/badge/Python-3.10+-blue"/>
+<img src="https://img.shields.io/badge/MuJoCo-3.2+-orange"/>
+<img src="https://img.shields.io/badge/Robot-Franka%20Panda-red"/>
+<img src="https://img.shields.io/badge/License-MIT-green"/>
+</p>
+
+<!-- docs/demo.gif 추가 권장 -->
+<!-- <img src="docs/demo.gif" width="900"/> -->
+
+</div>
+
+---
+
+## 🏆 핵심 성과
+
+| 항목 | 결과 |
+|--------|--------|
+| Catch Rate | **75%** |
+| Stereo 3D Accuracy | **9.4 mm** |
+| Tracking Frequency | **60 Hz** |
+| Control Frequency | **500 Hz** |
+| Noise Robustness | **σ ≈ 30 mm** |
+
+---
+
+## 🚀 프로젝트 개요
+
+MuJoCo 시뮬레이션 환경에서 **스테레오 카메라만으로** 던져진 공을 인지·추적·예측하고,
+**Franka Emika Panda 7-DOF 매니퓰레이터**로 실시간에 포착하는 End-to-End 로봇 시스템입니다.
+
+### 파이프라인
+
+```text
+Stereo RGB
+    ↓
+HSV Ball Detection
+    ↓
+DLT Triangulation
+    ↓
+Mahalanobis Tracking
+    ↓
+Acceleration EKF
+    ↓
+RK4 Trajectory Prediction
+    ↓
+Intercept Planning
+    ↓
+DLS Inverse Kinematics
+    ↓
+Panda Catch
+```
+
+---
+
+## ⚡ 빠른 시작
+
+```bash
+pip install -r requirements.txt
+python scripts/test_modules.py
+./run_viewer.sh live --use-gt
+```
+
+---
+
+## 📚 상세 문서
+
+아래부터는 프로젝트의 전체 사용법, 실험 방법, 구조 설명 및 기술적 세부 사항을 포함합니다.
+
+---
+
+
 # catch_robot — 비전 기반 동적 객체 캐치 로봇
 
 > MuJoCo 시뮬레이션에서 **스테레오 카메라만으로** 던져진 공을 인지·추적·예측하고,
