@@ -3,18 +3,19 @@
 
 # 🎯 catch_robot
 
-### 비전 기반 동적 객체 캐치 로봇
+### 비전 기반 동적 객체 캐치 로봇 (Vision-Based Dynamic Object Catching Robot)
 
-**Stereo Vision · State Estimation · Trajectory Prediction · Robot Manipulation**
+MuJoCo · Stereo Vision · EKF · Trajectory Prediction · Franka Panda
 
 <p>
 <img src="https://img.shields.io/badge/Python-3.10+-blue"/>
 <img src="https://img.shields.io/badge/MuJoCo-3.2+-orange"/>
 <img src="https://img.shields.io/badge/Robot-Franka%20Panda-red"/>
 <img src="https://img.shields.io/badge/License-MIT-green"/>
+<img src="https://img.shields.io/badge/Status-Completed-success"/>
 </p>
 
-<!-- docs/demo.gif 추가 권장 -->
+<!-- 추천: docs/demo.gif 추가 -->
 <!-- <img src="docs/demo.gif" width="900"/> -->
 
 </div>
@@ -24,45 +25,55 @@
 ## 🏆 핵심 성과
 
 | 항목 | 결과 |
-|--------|--------|
+|------|------|
 | Catch Rate | **75%** |
-| Stereo 3D Accuracy | **9.4 mm** |
+| Stereo 3D 정확도 | **9.4 mm** |
 | Tracking Frequency | **60 Hz** |
 | Control Frequency | **500 Hz** |
-| Noise Robustness | **σ ≈ 30 mm** |
+| 노이즈 강건성 한계 | **σ ≈ 30 mm** |
 
 ---
 
-## 🚀 프로젝트 개요
+## 🚀 프로젝트 소개
 
-MuJoCo 시뮬레이션 환경에서 **스테레오 카메라만으로** 던져진 공을 인지·추적·예측하고,
-**Franka Emika Panda 7-DOF 매니퓰레이터**로 실시간에 포착하는 End-to-End 로봇 시스템입니다.
+본 프로젝트는 MuJoCo 시뮬레이션 환경에서 스테레오 카메라만을 이용하여 던져진 공을 인지·추적·예측하고,
+Franka Emika Panda 7-DOF 매니퓰레이터를 이용해 실시간으로 포착하는 End-to-End 로봇 시스템입니다.
 
-### 파이프라인
+### 주요 기술
+
+- Stereo Vision 기반 3D 위치 추정
+- Mahalanobis Gating 기반 Tracking
+- Acceleration EKF 기반 상태 추정
+- RK4 + Drag 기반 궤적 예측
+- 불확실성 기반 요격점 선택
+- Damped Least Squares Inverse Kinematics
+- 실시간 로봇 제어 (500 Hz)
+
+### 전체 파이프라인
 
 ```text
 Stereo RGB
     ↓
-HSV Ball Detection
+HSV Detection
     ↓
 DLT Triangulation
     ↓
-Mahalanobis Tracking
+Tracking
     ↓
 Acceleration EKF
     ↓
-RK4 Trajectory Prediction
+Trajectory Prediction
     ↓
 Intercept Planning
     ↓
-DLS Inverse Kinematics
+DLS IK
     ↓
 Panda Catch
 ```
 
 ---
 
-## ⚡ 빠른 시작
+## ⚡ Quick Start
 
 ```bash
 pip install -r requirements.txt
@@ -72,9 +83,48 @@ python scripts/test_modules.py
 
 ---
 
+## 🎥 Demo
+
+```bash
+./run_viewer.sh live --use-gt --experiment
+```
+
+실시간으로 공을 추적하고 예측하여 로봇이 캐치하는 과정을 확인할 수 있습니다.
+
+---
+
+## 🏗️ 시스템 아키텍처
+
+```text
+Stereo Cameras
+      │
+      ▼
+Ball Detection
+      │
+      ▼
+Triangulation
+      │
+      ▼
+Tracking + EKF
+      │
+      ▼
+Trajectory Prediction
+      │
+      ▼
+Intercept Planning
+      │
+      ▼
+Inverse Kinematics
+      │
+      ▼
+Franka Panda Robot
+```
+
+---
+
 ## 📚 상세 문서
 
-아래부터는 프로젝트의 전체 사용법, 실험 방법, 구조 설명 및 기술적 세부 사항을 포함합니다.
+아래부터는 설치, 실험, 실행 방법, 프로젝트 구조 및 기술적 세부 사항을 포함한 전체 문서입니다.
 
 ---
 
