@@ -1,0 +1,78 @@
+<?xml version="1.0" ?>
+<mujoco model="catch_robot_scene">
+  <include file="panda.xml"/>
+
+  <option timestep="0.002" gravity="0 0 -9.81" integrator="implicitfast"
+          cone="elliptic" impratio="10"/>
+
+  <visual>
+    <global offwidth="1280" offheight="720" azimuth="120" elevation="-20"/>
+    <quality shadowsize="4096"/>
+    <map force="0.1" zfar="30"/>
+    <headlight diffuse="0.6 0.6 0.6" ambient="0.3 0.3 0.3" specular="0 0 0"/>
+    <rgba haze="0.15 0.25 0.35 1"/>
+  </visual>
+
+  <statistic center="0.3 0 0.5" extent="2"/>
+
+  <asset>
+    <texture type="skybox" builtin="gradient" rgb1="0.3 0.5 0.7" rgb2="0 0 0"
+             width="512" height="3072"/>
+    <texture type="2d" name="grid" builtin="checker" mark="edge"
+             rgb1="0.2 0.3 0.4" rgb2="0.1 0.2 0.3"
+             markrgb="0.8 0.8 0.8" width="300" height="300"/>
+    <material name="grid" texture="grid" texuniform="true"
+              texrepeat="5 5" reflectance="0.2"/>
+    <material name="ball_red"  rgba="0.85 0.15 0.15 1"/>
+    <material name="rig_dark"  rgba="0.10 0.10 0.10 1"/>
+  </asset>
+
+  <worldbody>
+    <light name="spot1" pos="2 -2 3" dir="-1 1 -1" diffuse="0.5 0.5 0.5"/>
+    <geom name="floor" type="plane" pos="0 0 0" size="5 5 0.05" material="grid"/>
+
+    <!-- Stereo camera rig. See README for geometry derivation. -->
+    <body name="cam_rig_marker" pos="0 -1.6 1.4">
+      <geom type="box" size="0.18 0.02 0.02" material="rig_dark"
+            contype="0" conaffinity="0"/>
+    </body>
+    <camera name="cam_left"  pos="-0.15 -1.6 1.4" fovy="60"
+            xyaxes="1 0 0  0 0.351 0.936"/>
+    <camera name="cam_right" pos=" 0.15 -1.6 1.4" fovy="60"
+            xyaxes="1 0 0  0 0.351 0.936"/>
+
+    <!-- Ball (free joint). Throws are configured in Python. -->
+    <body name="ball" pos="0 1.2 1.2">
+      <freejoint name="ball_free"/>
+      <geom name="ball_geom" type="sphere" size="0.035" mass="0.058"
+            material="ball_red"
+            friction="0.4 0.005 0.0001" solref="0.005 1"/>
+    </body>
+
+    <!-- Visual marker for catch zone (no collision). -->
+    <body name="catch_zone_marker" pos="0.5 0 0.8">
+      <geom type="sphere" size="0.05" rgba="0 1 0 0.15"
+            contype="0" conaffinity="0"/>
+    </body>
+  </worldbody>
+
+  <sensor>
+    <framepos    name="ball_pos_gt" objtype="body" objname="ball"/>
+    <framelinvel name="ball_vel_gt" objtype="body" objname="ball"/>
+    <framepos    name="ee_pos"      objtype="body" objname="hand"/>
+    <framequat   name="ee_quat"     objtype="body" objname="hand"/>
+  </sensor>
+
+  <keyframe>
+    <!-- Ready stance: shoulder rotated so EE faces +y (where balls come from).
+         qpos = [joint1=π/2, joint2=-0.5, j3=0, j4=-1.8, j5=0, j6=1.5, j7=0,
+                 finger1=0.04, finger2=0.04, ball xyz quat...]
+         This puts EE roughly at (0, 0.45, 0.55) facing +y, halfway into
+         the reachable shell that the ball's parabola will sweep through. -->
+    <key name="scene_ready"
+         qpos="1.5708 -0.5 0 -1.8 0 1.5 0
+               0.04 0.04
+               0 1.2 1.2 1 0 0 0"
+         ctrl="1.5708 -0.5 0 -1.8 0 1.5 0 255"/>
+  </keyframe>
+</mujoco>
